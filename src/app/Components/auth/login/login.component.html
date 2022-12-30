@@ -1,0 +1,80 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Translarity</a>
+        <button  class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarScroll">
+            <div class="">
+                <ul class="navbar-nav me-auto my-2 my-sm-0 navbar-nav-scroll my-navbar" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#" routerLink="login" >Log In</a>
+                    </li>
+            
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">Signup</a>
+                    </li>
+                    
+                    <li class="nav-item"> 
+                    <a class="nav-link " href="#" tabindex="-1">Help?</a>
+                    </li>
+                </ul>
+            </div>
+    
+        <!-- <ul class="navbar-navfsdaiu me-auto my-2 my-sm-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#" routerLink="login" >Log In</a>
+            </li>
+    
+            <li class="nav-item">
+            <a class="nav-link" href="#">Signup</a>
+            </li>
+            
+            <li class="nav-item"> 
+            <a class="nav-link " href="#" tabindex="-1">Help?</a>
+            </li>
+        </ul> -->
+        </div>
+    </div>
+    </nav>
+    
+    
+    <div class="bg-container">
+        <div class="container-box">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=872&amp;q=80" alt="Warehouse image">
+            </div>
+            <div class="form-container">
+                <p id="form-heading">Log In</p>
+    
+                <form [formGroup]="loginForm" (ngSubmit)="loginFormSubmit(loginForm)" id="loginForm">
+                    <!-- E-mail Input Fied -->
+                    <div class="form-group mb-3">
+                        <input formControlName="email" type="email" class="form-control" id="email-input" aria-describedby="emailHelp" placeholder="Enter email" autocomplete="off">
+                        
+                        <!-- <div *ngIf="loginForm.get('email').invalid && (loginForm.get('email').dirty || loginForm.get('email').touched)">
+                            Please provide an email.
+                          </div> -->
+                    </div>
+            
+                    <!-- Password Input Field -->
+                    <div class="form-group mb-3">
+                        <input formControlName="password" type="password" class="form-control" id="password-input" placeholder="Password" autocomplete="off">
+                        <!-- <div *ngIf="loginForm.get('password').invalid && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+                            Please provide a password.
+                          </div> -->
+                    </div>
+                    <!-- <p id="errors-para"></p> -->
+            
+                    <div class="forgotPasswordContainer"><a href="/forgot-password/"><p> Forgot Password? </p></a></div>
+            
+                    <div class="row justify-content-center">
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-md btn-warning" id="login-submit-btn">Log In</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
