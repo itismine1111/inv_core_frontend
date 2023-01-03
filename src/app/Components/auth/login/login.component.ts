@@ -10,6 +10,8 @@ import { AuthService } from 'src/app/Services/auth.service';
 export class LoginComponent {
 
   loginForm: FormGroup;
+  apiError: Boolean = false;
+  serverNotResponding: Boolean = false;
 
   // constructor(private authService: AuthService){
   constructor(private authService: AuthService){ 
@@ -26,10 +28,39 @@ export class LoginComponent {
     console.log(form.valid);
 
     this.authService.login(form.value.email, form.value.password)
-    .subscribe(json_res=>{
+    .subscribe(
+      json_res=>{
       localStorage.setItem("inv_token", json_res['data']['token']);
       console.log(localStorage.getItem('inv_token'));
-    })
+
+      this.serverNotResponding = false;
+      this.apiError = false;
+      },
+
+      error=>{
+      
+        console.log(error['error']);
+        if(error['error']["success"]=== false){
+          this.apiError = true;
+          // document.getElementById('api-errors-para')?.innerHTML = error['error']["message"];
+
+          this.serverNotResponding = false;
+
+          console.warn("Api error");
+          console.warn(this.apiError);
+
+        }
+        else{
+          this.serverNotResponding = true;
+          console.log("Error Occured while contacting the server");
+          console.warn("Server error");
+          console.warn(this.serverNotResponding);
+
+          this.apiError = false;
+
+        }
+      }
+    )
    }
 
 }
