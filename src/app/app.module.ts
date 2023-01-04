@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './Components/auth/login/login.component';
 import { AuthService } from './Services/auth.service';
 import { ForgotPasswordComponent } from './Components/auth/forgot-password/forgot-password.component';
+import { ConfirmOtpComponent } from './Components/auth/confirm-otp/confirm-otp.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    ConfirmOtpComponent
   ],
   imports: [
     BrowserModule,

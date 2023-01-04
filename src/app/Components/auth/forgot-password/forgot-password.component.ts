@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class ForgotPasswordComponent {
   apiErrMessage: String = "";
   serverNotResponding: Boolean = false;
 
-  constructor(private authService: AuthService){
+  constructor(private authService: AuthService, private router:Router){
     this.forgotPasswordForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email])
     })
@@ -27,6 +28,10 @@ export class ForgotPasswordComponent {
     .subscribe(
       json_res=>{
         console.log(json_res);
+        localStorage.setItem("inv_reset_password_email", form.value.email);
+        console.warn(localStorage.getItem("inv_reset_password_email"));
+        // route to confirm otp compoment
+        this.router.navigateByUrl("confirm-otp");
       },
 
       error=>{
