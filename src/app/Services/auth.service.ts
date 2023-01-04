@@ -20,6 +20,8 @@ export class AuthService {
 
   //   return(this.httpClient.post(this.baseURL + "/login/", {'email':email, 'password':password, 'device_type': device_type, 'device_token': device_token}))
   // }
+
+  // Login Api
   login(email:string, password: string, device_type:string="w", device_token:string="")
   {
     const formData = new FormData();
@@ -29,6 +31,14 @@ export class AuthService {
     formData.append('device_token', device_token);
 
     var data =  this.httpClient.post<any>(this.baseURL + "/login/", formData);
+    return data;
+  }
+
+  // Forgot Password Api
+  forgotPassword(email:string){
+    const formData = new FormData();
+    formData.append('email', email);
+    var data = this.httpClient.post<any>(this.baseURL + "/forgot-password/", formData);
     return data;
   }
     

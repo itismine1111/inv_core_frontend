@@ -11,6 +11,7 @@ export class LoginComponent {
 
   loginForm: FormGroup;
   apiError: Boolean = false;
+  apiErrMessage: String = "";
   serverNotResponding: Boolean = false;
 
   // constructor(private authService: AuthService){
@@ -42,6 +43,7 @@ export class LoginComponent {
         console.log(error['error']);
         if(error['error']["success"]=== false){
           this.apiError = true;
+          this.apiErrMessage = error['error']["message"];
           // document.getElementById('api-errors-para')?.innerHTML = error['error']["message"];
 
           this.serverNotResponding = false;
