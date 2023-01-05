@@ -1,1 +1,76 @@
-<p>confirm-otp works!</p>
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Translarity</a>
+        <button  class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarScroll">
+            <div class="">
+                <ul class="navbar-nav me-auto my-2 my-sm-0 navbar-nav-scroll my-navbar" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#" routerLink="login" >Log In</a>
+                    </li>
+            
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">Signup</a>
+                    </li>
+                    
+                    <li class="nav-item"> 
+                    <a class="nav-link " href="#" tabindex="-1">Help?</a>
+                    </li>
+                </ul>
+            </div>
+    
+        <!-- <ul class="navbar-navfsdaiu me-auto my-2 my-sm-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#" routerLink="login" >Log In</a>
+            </li>
+    
+            <li class="nav-item">
+            <a class="nav-link" href="#">Signup</a>
+            </li>
+            
+            <li class="nav-item"> 
+            <a class="nav-link " href="#" tabindex="-1">Help?</a>
+            </li>
+        </ul> -->
+        </div>
+    </div>
+    </nav>
+    
+    
+    <div class="bg-container">
+        <div class="container-box">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=872&amp;q=80" alt="Warehouse image">
+            </div>
+            <div class="form-container"> 
+                <p id="form-heading">Confirm OTP</p>
+                <p id=""><strong>Email: <u>{{ emailConfirmOtp }}</u></strong></p>
+
+    
+                <form [formGroup]="confirmOtpForm" (ngSubmit)="confirmOtpFormSubmit(confirmOtpForm)" id="loginForm">
+                    <!-- E-mail Input Fied -->
+                    <div class="form-group mb-3">
+                        <input formControlName="otp" type="email" class="form-control" id="email-input" aria-describedby="emailHelp" placeholder="Enter the OTP" autocomplete="off">
+                        
+                        <div *ngIf="confirmOtpForm.get('otp')?.invalid && (confirmOtpForm.get('otp')?.dirty || confirmOtpForm.get('otp')?.touched)" class="errors-para">
+                            Please provide an OTP.
+                          </div>
+                    </div>
+            
+                    <p *ngIf="serverNotResponding" id="server-errors-para" class="errors-para">Server not responding</p>
+
+                    <p *ngIf="apiError" id="api-errors-para" class="errors-para" id="api-errors-para" [innerHTML]="apiErrMessage"></p>
+            
+            
+                    <div class="row justify-content-center">
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-md btn-warning" id="login-submit-btn">Confirm</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>

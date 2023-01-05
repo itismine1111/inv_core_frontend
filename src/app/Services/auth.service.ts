@@ -41,6 +41,18 @@ export class AuthService {
     var data = this.httpClient.post<any>(this.baseURL + "/forgot-password/", formData);
     return data;
   }
+
+  // Confirm Otp Forgot password
+  confirmOtpForgotPassword(email:string, otp:string){
+    const formData = new FormData();
+    formData.append("email", email);
+    formData.append("otp", otp);
+    formData.append("device_type", "W");
+    formData.append("device_token", "");
+    var data = this.httpClient.post<any>(this.baseURL + "/confirm-otp-forgot-password/", formData);
+    return data;
+
+  }
     
 }
  

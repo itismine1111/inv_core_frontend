@@ -1,4 +1,4 @@
 Jan 5,2023:
-    [] Complete Fotfot Password Component
+    [] Complete Forgot Password Component
     [] Complete Reset password Component
     [] Fix routing of all the auth components

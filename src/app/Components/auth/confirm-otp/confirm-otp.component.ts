@@ -1,10 +1,71 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
   selector: 'app-confirm-otp',
   templateUrl: './confirm-otp.component.html',
   styleUrls: ['./confirm-otp.component.css']
 })
-export class ConfirmOtpComponent {
+export class ConfirmOtpComponent implements OnInit{
+  
+  emailConfirmOtp:string = "";
+  confirmOtpForm: FormGroup;
+  apiError: Boolean = false;
+  apiErrMessage: String = "";
+  serverNotResponding: Boolean = false;
 
+  constructor(private authService:AuthService, private router:Router){
+    this.confirmOtpForm = new FormGroup({
+      otp: new FormControl("", [Validators.required])
+    })
+  }
+
+  ngOnInit(): void {
+    var temp = localStorage.getItem("inv_reset_password_email");
+    this.emailConfirmOtp = temp!==null ? temp: "";
+  }
+
+
+  confirmOtpFormSubmit(form: FormGroup){
+    console.log(form.value.otp);
+    console.log(form.valid);
+
+    this.authService.confirmOtpForgotPassword(form.value.otp, this.emailConfirmOtp)
+    .subscribe(
+      json_res=>{
+        console.log(json_res);
+        localStorage.setItem("inv_reset_password_email", form.value.email);
+        console.warn(localStorage.getItem("inv_reset_password_email"));
+        // route to confirm otp compoment
+        this.router.navigateByUrl("confirm-otp");
+      },
+
+      error=>{
+      
+        console.log(error['error']);
+        if(error['error']["success"]=== false){
+          this.apiError = true;
+          this.apiErrMessage = error['error']["message"];
+
+          this.serverNotResponding = false;
+
+          console.warn("Api error");
+          console.warn(this.apiError);
+
+        }
+        else{
+          this.serverNotResponding = true;
+          console.log("Error Occured while contacting the server");
+          console.warn("Server error");
+          console.warn(this.serverNotResponding);
+
+          this.apiError = false;
+
+        }
+      }
+    )
+  }
+  
 }
