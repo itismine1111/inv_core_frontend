@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -52,6 +52,19 @@ export class AuthService {
     var data = this.httpClient.post<any>(this.baseURL + "/confirm-otp-forgot-password/", formData);
     return data;
 
+  }
+
+  resetPassword(password:string, confirm_password:string, token:string){
+    let headers: HttpHeaders = new HttpHeaders();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+    headers.append('Authorization', "token" + token);
+
+    const formData = new FormData();
+    formData.append("password", password);
+    formData.append("confirm_password", confirm_password);
+
+    var data = this.httpClient.post<any>(this.baseURL + "/reset-password/", formData, {headers});
+    return data;
   }
     
 }
