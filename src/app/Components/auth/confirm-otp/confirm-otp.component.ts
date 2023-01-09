@@ -34,9 +34,10 @@ export class ConfirmOtpComponent implements OnInit {
 
   confirmOtpFormSubmit(form: FormGroup) {
     console.log(form.value.otp);
+    console.log(this.emailConfirmOtp);
     console.log(form.valid);
 
-    this.authService.confirmOtpForgotPassword(form.value.otp, this.emailConfirmOtp)
+    this.authService.confirmOtpForgotPassword(this.emailConfirmOtp, form.value.otp)
       .subscribe(
         json_res => {
           console.log(json_res);

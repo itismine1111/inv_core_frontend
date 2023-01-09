@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/Services/auth.service';
+import { ConfirmPasswordValidator } from 'src/app/Validators/confirmPassword.Validator';
 
 @Component({
   selector: 'app-reset-password',
@@ -20,7 +21,7 @@ export class ResetPasswordComponent {
     this.resetPasswordForm = new FormGroup({
       password: new FormControl('', [Validators.required]),
       confirm_password: new FormControl('', [Validators.required])
-    })
+    }, { validators:  ConfirmPasswordValidator})
   }
 
   ngOnInit(): void {
@@ -42,6 +43,7 @@ export class ResetPasswordComponent {
   resetPasswordFormSubmit(form: FormGroup){
     console.log(form.value.password);
     console.log(form.value.confirm_password);
+    console.log(this.apiToken);
 
     this.authService.resetPassword(form.value.password, form.value.confirm_password, this.apiToken)
     .subscribe(

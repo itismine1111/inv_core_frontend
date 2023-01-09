@@ -55,15 +55,22 @@ export class AuthService {
   }
 
   resetPassword(password:string, confirm_password:string, token:string){
-    let headers: HttpHeaders = new HttpHeaders();
-    headers.append('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-    headers.append('Authorization', "token" + token);
+    // let headers: HttpHeaders = new HttpHeaders();
+    // headers.append('Content-Type', 'application/json');
+    // headers.append('Authorization', "token " + token);
 
-    const formData = new FormData();
+    let headers: HttpHeaders = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('Authorization', "token " + token);
+
+    console.log("headers");
+    console.log(headers);
+
+    let formData = new FormData();
     formData.append("password", password);
     formData.append("confirm_password", confirm_password);
 
-    var data = this.httpClient.post<any>(this.baseURL + "/reset-password/", formData, {headers});
+    var data = this.httpClient.post<any>(this.baseURL + "/reset-password/", formData, { headers: headers });
     return data;
   }
     
