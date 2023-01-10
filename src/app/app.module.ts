@@ -10,6 +10,8 @@ import { AuthService } from './Services/auth.service';
 import { ForgotPasswordComponent } from './Components/auth/forgot-password/forgot-password.component';
 import { ConfirmOtpComponent } from './Components/auth/confirm-otp/confirm-otp.component';
 import { ResetPasswordComponent } from './Components/auth/reset-password/reset-password.component';
+import { HeaderComponent } from './Components/layout/header/header.component';
+import { HomepageComponent } from './Components/layout/homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { ResetPasswordComponent } from './Components/auth/reset-password/reset-p
     LoginComponent,
     ForgotPasswordComponent,
     ConfirmOtpComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    HeaderComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,123 @@
+<div class="navbar-header">
+    <a class="navbar-toggle font-16 hidden-sm hidden-md hidden-lg" href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse">
+      <i class="fa fa-bars"></i>
+    </a>
+    <ul class="nav navbar-top-links navbar-left">
+      <!-- <li class="dropdown">
+        <div class="open-btn"><i class="fa-solid fa-bars"></i></div>
+        <div class="menu">
+          <div class="close-btn"><i class="fa-solid fa-xmark"></i></div>
+          <button class="btn btn-danger" id="logout-btn" style="margin: 45px; ">Logout</button>
+        </div>
+      </li> -->
+      <li class="dropdown">
+        <a class="dropdown-toggle waves-effect waves-light font-16" data-toggle="dropdown" href="javascript:void(0);" id="list-page-btn">
+          <!-- <i class="ti-align-justify"></i> -->
+          <i class="fa-solid fa-list-check"></i>
+          <span style="font-size: 16px">List</span>
+        </a>
+      </li>
+      <li class="dropdown">
+        <a class="dropdown-toggle waves-effect waves-light font-16" data-toggle="dropdown" href="javascript:void(0);">
+          <!-- <i class=" ti-file "></i> -->
+          <i class="fa-solid fa-file"></i>
+          <span style="font-size: 16px">Process</span>
+        </a>
+      </li>
+      <li class="dropdown">
+        <a class="dropdown-toggle waves-effect waves-light font-16" data-toggle="dropdown" href="javascript:void(0);" id="forms-dropdown-button" aria-expanded="false">
+          <!-- <i class="ti-pencil-alt"></i> -->
+          <i class="fa-solid fa-pen-to-square"></i>
+          <span style="font-size: 16px">Form</span>
+        </a>
+        <div class="dropdown-menu forms-drpdown-div" aria-labelledby="forms-dropdown-button">
+          <a class="dropdown-item form-dropdown-a" href="javascript:void(0)/" id="add-groups-form-a">Add Groups Form</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item form-dropdown-a" href="javascript:void(0)" id="add-locations-form-a">Add Locations Form</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item form-dropdown-a" href="javascript:void(0)" id="add-categories-form-a">Add Categories Form</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item form-dropdown-a" href="javascript:void(0)" id="add-suppliers-form-a">Add Suppliers Form</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item form-dropdown-a" href="javascript:void(0)" id="add-units-measure-form-a">Add Units Measure Form</a>
+          <div class="dropdown-divider"></div>
+        </div>
+      </li>
+    </ul>
+    <ul class="nav navbar-top-links navbar-left hidden-xs">
+      <li>
+        <form role="search" class="app-search hidden-xs">
+          <!-- <i class="icon-magnifier"></i> -->
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Search..." class="form-control">
+        </form>
+      </li>
+    </ul>
+    <ul class="nav navbar-top-links navbar-left">
+      <li class="dropdown">
+        <a class="dropdown-toggle waves-effect waves-light font-16" data-toggle="dropdown" href="javascript:void(0);" id="previous-product-select-btn">
+          <!-- <i class="ti-angle-left"></i> -->
+          <i class="fa-solid fa-angle-left"></i>
+        </a>
+      </li>
+      <li class="dropdown">
+        <a class="dropdown-toggle waves-effect waves-light font-16" data-toggle="dropdown" href="javascript:void(0);" id="next-product-select-btn">
+          <!-- <i class="ti-angle-right"></i> -->
+          <i class="fa-solid fa-angle-right"></i>
+        </a>
+      </li>
+      <li class="dropdown">
+        <a class="dropdown-toggle waves-effect waves-light font-16" data-toggle="dropdown" href="javascript:void(0);" id="new-product-entry-btn">
+          <!-- <i class="ti-pencil"></i> -->
+          <i class="fa-solid fa-pen"></i>
+          <span style="font-size: 16px">New Edit</span>
+        </a>
+      </li>
+      <li class="dropdown">
+        <a class="dropdown-toggle waves-effect waves-light font-16" data-toggle="dropdown" href="javascript:void(0);" id="sort-btn-asc">
+          <!-- <i class="ti-upload"></i> -->
+          <i class="fa-solid fa-upload"></i>
+          <span style="font-size: 16px">Sort</span>
+        </a>
+      </li>
+      <li class="dropdown">
+        <a class="dropdown-toggle waves-effect waves-light font-16" data-toggle="dropdown" href="javascript:void(0);" id="sort-btn-dec">
+          <!-- <i class="ti-download"></i> -->
+          <i class="fa-solid fa-download"></i>
+          <span style="font-size: 16px">Sort</span>
+        </a>
+      </li>
+      <li class="dropdown">
+        <a class="dropdown-toggle waves-effect waves-light font-16" data-toggle="dropdown" href="javascript:void(0);" id="print-btn">
+          <!-- <i class="ti-printer"></i> -->
+          <i class="fa-solid fa-print"></i>
+          <span style="font-size: 16px">Print</span>
+        </a>
+      </li>
+      <li class="dropdown">
+        <a class="dropdown-toggle waves-effect waves-light font-16" data-toggle="dropdown" href="javascript:void(0);" id="product-delete-btn">
+          <!-- <i class="ti-trash"></i> -->
+          <i class="fa-solid fa-trash-can"></i>
+          <span style="font-size: 16px">Delete</span>
+        </a>
+      </li>
+      <li class="dropdown">
+        <a class="dropdown-toggle waves-effect waves-light font-16" data-toggle="dropdown" href="javascript:void(0);">
+          <!-- <i class="ti-home"></i> -->
+          <i class="fa-solid fa-house"></i>
+          <span style="font-size: 16px">Home</span>
+        </a>
+      </li>
+    </ul>
+
+    <ul class="nav navbar-top-links navbar-right" style="background-color:rgb(242, 89, 89)">
+      <li class="dropdown">
+        <a class="dropdown-toggle waves-effect waves-light font-16" data-toggle="dropdown" href="javascript:void(0);" id="logout-btn">
+          <!-- <i class="ti-home"></i> -->
+          <i class="fa-solid fa-sign-out"></i>
+          <span style="font-size: 16px;">Logout</span>
+        </a>
+      </li>
+    </ul>
+
+  </div>

@@ -1,0 +1,48 @@
+.navbar-header{
+    display: block;
+    background: linear-gradient(to right,#f2a225 1%,#ffbb51 100%);
+    width: 100%;
+    border: 0;
+    float: left;
+    box-sizing: border-box;
+    font-size: 13px;
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+    font-size: 13px;
+}
+
+.navbar-top-links > li{
+    float: left;
+    position: relative;
+    display: block;
+    text-align: -webkit-match-parent;
+}
+
+.navbar-left>li .app-search, .navbar-left>li a {
+    padding: 0 15px;
+}
+
+.navbar-top-links>li>a {
+    color: rgba(255, 255, 255, 1);
+    line-height: 60px;
+    min-height: 60px;
+}
+
+.nav{
+    list-style: none;
+}
+
+.nav>li>a {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    background-color: transparent;
+}

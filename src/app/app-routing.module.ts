@@ -4,9 +4,10 @@ import { ConfirmOtpComponent } from './Components/auth/confirm-otp/confirm-otp.c
 import { ForgotPasswordComponent } from './Components/auth/forgot-password/forgot-password.component';
 import { LoginComponent } from './Components/auth/login/login.component';
 import { ResetPasswordComponent } from './Components/auth/reset-password/reset-password.component';
+import { HomepageComponent } from './Components/layout/homepage/homepage.component';
 
 const routes: Routes = [
-  {path:"", component:LoginComponent},
+  {path:"", component:HomepageComponent},
   // {path:"**", component:LoginComponent},
   {path:"login", component:LoginComponent},
   {path:"forgot-password", component:ForgotPasswordComponent},
